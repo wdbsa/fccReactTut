@@ -1,0 +1,47 @@
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [
+        {
+          username: 'Jeff',
+          online: true
+        },
+        {
+          username: 'Alan',
+          online: false
+        },
+        {
+          username: 'Mary',
+          online: true
+        },
+        {
+          username: 'Jim',
+          online: false
+        },
+        {
+          username: 'Sara',
+          online: true
+        },
+        {
+          username: 'Laura',
+          online: true
+        }
+      ]
+    };
+  }
+  render() {
+    let usersOnline = this.state.users.filter(user => user.online); // Change this line
+
+    let renderOnline = usersOnline; 
+    // Change this line
+    return (
+      <div>
+        <h1>Current Online Users:</h1>
+        <ul>{renderOnline.map(i => {
+          return <li key={i.username}>{i.username}</li>
+        })}</ul>
+      </div>
+    );
+  }
+}
